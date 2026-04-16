@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My GitHub Page</title>
-    <meta name="description" content="A beautiful personal portfolio and project showcase hosted on GitHub Pages.">
+    <title>Portfolio | Personal Website</title>
+    <meta name="description" content="Personal portfolio showcasing projects, experience, and education.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0f172a;
+            --surface-color: rgba(30, 41, 59, 0.7);
             --text-main: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-primary: #3b82f6;
             --accent-secondary: #8b5cf6;
+            --accent-tertiary: #10b981;
         }
 
         * {
@@ -25,40 +27,45 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Abstract background elements */
+        /* Background Effects */
         .bg-shape {
-            position: absolute;
+            position: fixed;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.5;
-            z-index: 0;
+            filter: blur(120px);
+            opacity: 0.4;
+            z-index: -1;
             animation: float 20s infinite ease-in-out alternate;
         }
 
         .shape1 {
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             background: var(--accent-primary);
-            top: -100px;
+            top: -150px;
             left: -100px;
         }
 
         .shape2 {
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             background: var(--accent-secondary);
-            bottom: -150px;
-            right: -100px;
+            bottom: -200px;
+            right: -150px;
             animation-delay: -10s;
+        }
+
+        .shape3 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-tertiary);
+            top: 40%;
+            left: 30%;
+            animation-duration: 25s;
         }
 
         @keyframes float {
@@ -66,136 +73,359 @@
             100% { transform: translate(50px, 50px) scale(1.1); }
         }
 
+        /* Layout */
         .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--surface-color);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
+            border-radius: 20px;
+            padding: 2.5rem;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: translateY(30px);
-            opacity: 0;
-            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1 {
-            font-size: 3.5rem;
+        /* Typography */
+        h1, h2, h3 {
             font-weight: 800;
-            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .gradient-text {
             background: linear-gradient(to right, #60a5fa, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 1rem;
+        .section-header::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+            margin-left: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Hero / Personal Info Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
             justify-content: center;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero h2::after { 
+            display: none; 
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.875rem 2rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 9999px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            box-shadow: 0 10px 20px -10px rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px -10px rgba(139, 92, 246, 0.7);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
+        .btn:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hover effect for buttons */
-        .btn::after {
+        /* Timeline / Lists */
+        .timeline {
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            padding-left: 2rem;
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            left: -2.45rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 15px var(--accent-primary);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item .meta {
+            font-size: 0.875rem;
+            color: #c084fc;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
         }
 
-        .btn:hover::after {
-            transform: translateX(100%);
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 640px) {
-            h1 { font-size: 2.5rem; }
-            .btn-group { flex-direction: column; }
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            font-weight: 600;
+        }
+
+        .project-link {
+            margin-top: auto;
+            color: #c084fc;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .container { padding: 2rem 1rem; gap: 3rem; }
+            .glass-card { padding: 1.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <!-- Animated background layers -->
     <div class="bg-shape shape1"></div>
     <div class="bg-shape shape2"></div>
-    
+    <div class="bg-shape shape3"></div>
+
     <div class="container">
-        <h1>Welcome.</h1>
-        <p>This is a modern, responsive starter template for your GitHub Pages site. It features smooth glassmorphism effects, fluid gradient text, and subtle micro-animations.</p>
         
-        <div class="btn-group">
-            <a href="https://github.com/pocketjo00/pocketjo00.github.io" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Repository</a>
-            <a href="#" class="btn btn-secondary">Learn More</a>
-        </div>
+        <!-- === Personal Information === -->
+        <section class="hero glass-card" id="about">
+            <h1 class="gradient-text">Your Name</h1>
+            <h2>Software Engineer & Designer</h2>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">
+                I build digital experiences that are beautiful, performant, and accessible. 
+                Passionate about web development, AI, and creating elegant solutions to complex problems.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/pocketjo00" class="btn" target="_blank">GitHub</a>
+                <a href="#" class="btn" target="_blank">LinkedIn</a>
+                <a href="mailto:contact@example.com" class="btn">Email Me</a>
+            </div>
+        </section>
+
+        <!-- === Project Space === -->
+        <section class="fade-in" id="projects">
+            <h2 class="section-header gradient-text">Project Space</h2>
+            <div class="projects-grid">
+                
+                <div class="glass-card project-card">
+                    <h3 style="margin-bottom: 0.5rem;">Project Alpha</h3>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                    <p>A full-stack application that revolutionized how users interact with data flows, featuring real-time updates and a gorgeous UI.</p>
+                    <a href="#" class="project-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <h3 style="margin-bottom: 0.5rem;">AI Vision Tool</h3>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                    </div>
+                    <p>An open-source computer vision tool designed for accessibility. It processes images rapidly and provides audio feedback.</p>
+                    <a href="#" class="project-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <h3 style="margin-bottom: 0.5rem;">Interactive Dashboard</h3>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">D3.js</span>
+                    </div>
+                    <p>A dynamic, responsive dashboard for visualizing complex analytics data with interactive charts and real-time filtering.</p>
+                    <a href="#" class="project-link">View Repository &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- === Experience === -->
+        <section class="fade-in" id="experience">
+            <div class="glass-card">
+                <h2 class="section-header gradient-text">Experience</h2>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <h3>Senior Software Engineer</h3>
+                        <div class="meta">Tech Corp Inc. | Jan 2023 - Present</div>
+                        <p>Led a team of 5 developers to rebuild the core customer portal. Improved site performance by 40% and implemented a new consistent design system across all products.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Frontend Developer</h3>
+                        <div class="meta">Creative Agency | Jun 2020 - Dec 2022</div>
+                        <p>Developed responsive, highly interactive web applications for high-profile clients. Collaborated closely with UI/UX designers to bring complex mockups to life.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- === Education === -->
+        <section class="fade-in" id="education">
+            <div class="glass-card">
+                <h2 class="section-header gradient-text">Education</h2>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <h3>Master of Science in Computer Science</h3>
+                        <div class="meta">University of Technology | 2018 - 2020</div>
+                        <p>Specialized in Human-Computer Interaction and Machine Learning. Authored thesis on adaptive user interfaces.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <div class="meta">State University | 2014 - 2018</div>
+                        <p>Graduated with Honors. Co-founded the university's Web Development Club and led multiple hackathon teams.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script>
-        // Add a simple interaction effect
-        const container = document.querySelector('.container');
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
-            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
+        // Intersection Observer for scroll animations
+        // Elements fade in and slide up when they enter the viewport
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
 
-        // Reset transform on mouse leave
-        document.addEventListener('mouseleave', () => {
-            container.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once the element has faded in
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
