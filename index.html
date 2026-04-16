@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,8 +70,13 @@
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
         }
 
         /* Layout */
@@ -102,7 +108,9 @@
         }
 
         /* Typography */
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-weight: 800;
             color: var(--text-main);
         }
@@ -126,7 +134,7 @@
             content: '';
             flex-grow: 1;
             height: 1px;
-            background: linear-gradient(to right, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
             margin-left: 1rem;
         }
 
@@ -154,9 +162,9 @@
             margin-bottom: 1.5rem;
             font-weight: 400;
         }
-        
-        .hero h2::after { 
-            display: none; 
+
+        .hero h2::after {
+            display: none;
         }
 
         .social-links {
@@ -275,8 +283,15 @@
 
         /* Animations */
         @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .fade-in {
@@ -291,13 +306,26 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .container { padding: 2rem 1rem; gap: 3rem; }
-            .glass-card { padding: 1.5rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+                gap: 3rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Animated background layers -->
     <div class="bg-shape shape1"></div>
@@ -305,13 +333,13 @@
     <div class="bg-shape shape3"></div>
 
     <div class="container">
-        
+
         <!-- === Personal Information === -->
         <section class="hero glass-card" id="about">
-            <h1 class="gradient-text">Your Name</h1>
+            <h1 class="gradient-text">Joanna Gavlik</h1>
             <h2>Software Engineer & Designer</h2>
             <p style="max-width: 600px; margin: 0 auto; font-size: 1.125rem;">
-                I build digital experiences that are beautiful, performant, and accessible. 
+                I build digital experiences that are beautiful, performant, and accessible.
                 Passionate about web development, AI, and creating elegant solutions to complex problems.
             </p>
             <div class="social-links">
@@ -325,14 +353,15 @@
         <section class="fade-in" id="projects">
             <h2 class="section-header gradient-text">Project Space</h2>
             <div class="projects-grid">
-                
+
                 <div class="glass-card project-card">
                     <h3 style="margin-bottom: 0.5rem;">Project Alpha</h3>
                     <div class="project-tags">
                         <span class="tag">React</span>
                         <span class="tag">Node.js</span>
                     </div>
-                    <p>A full-stack application that revolutionized how users interact with data flows, featuring real-time updates and a gorgeous UI.</p>
+                    <p>A full-stack application that revolutionized how users interact with data flows, featuring
+                        real-time updates and a gorgeous UI.</p>
                     <a href="#" class="project-link">View Repository &rarr;</a>
                 </div>
 
@@ -342,7 +371,8 @@
                         <span class="tag">Python</span>
                         <span class="tag">TensorFlow</span>
                     </div>
-                    <p>An open-source computer vision tool designed for accessibility. It processes images rapidly and provides audio feedback.</p>
+                    <p>An open-source computer vision tool designed for accessibility. It processes images rapidly and
+                        provides audio feedback.</p>
                     <a href="#" class="project-link">View Repository &rarr;</a>
                 </div>
 
@@ -352,7 +382,8 @@
                         <span class="tag">Vue.js</span>
                         <span class="tag">D3.js</span>
                     </div>
-                    <p>A dynamic, responsive dashboard for visualizing complex analytics data with interactive charts and real-time filtering.</p>
+                    <p>A dynamic, responsive dashboard for visualizing complex analytics data with interactive charts
+                        and real-time filtering.</p>
                     <a href="#" class="project-link">View Repository &rarr;</a>
                 </div>
 
@@ -364,17 +395,19 @@
             <div class="glass-card">
                 <h2 class="section-header gradient-text">Experience</h2>
                 <div class="timeline">
-                    
+
                     <div class="timeline-item">
                         <h3>Senior Software Engineer</h3>
                         <div class="meta">Tech Corp Inc. | Jan 2023 - Present</div>
-                        <p>Led a team of 5 developers to rebuild the core customer portal. Improved site performance by 40% and implemented a new consistent design system across all products.</p>
+                        <p>Led a team of 5 developers to rebuild the core customer portal. Improved site performance by
+                            40% and implemented a new consistent design system across all products.</p>
                     </div>
 
                     <div class="timeline-item">
                         <h3>Frontend Developer</h3>
                         <div class="meta">Creative Agency | Jun 2020 - Dec 2022</div>
-                        <p>Developed responsive, highly interactive web applications for high-profile clients. Collaborated closely with UI/UX designers to bring complex mockups to life.</p>
+                        <p>Developed responsive, highly interactive web applications for high-profile clients.
+                            Collaborated closely with UI/UX designers to bring complex mockups to life.</p>
                     </div>
 
                 </div>
@@ -386,17 +419,19 @@
             <div class="glass-card">
                 <h2 class="section-header gradient-text">Education</h2>
                 <div class="timeline">
-                    
+
                     <div class="timeline-item">
                         <h3>Master of Science in Computer Science</h3>
                         <div class="meta">University of Technology | 2018 - 2020</div>
-                        <p>Specialized in Human-Computer Interaction and Machine Learning. Authored thesis on adaptive user interfaces.</p>
+                        <p>Specialized in Human-Computer Interaction and Machine Learning. Authored thesis on adaptive
+                            user interfaces.</p>
                     </div>
 
                     <div class="timeline-item">
                         <h3>Bachelor of Science in Information Technology</h3>
                         <div class="meta">State University | 2014 - 2018</div>
-                        <p>Graduated with Honors. Co-founded the university's Web Development Club and led multiple hackathon teams.</p>
+                        <p>Graduated with Honors. Co-founded the university's Web Development Club and led multiple
+                            hackathon teams.</p>
                     </div>
 
                 </div>
@@ -429,4 +464,5 @@
         });
     </script>
 </body>
+
 </html>
